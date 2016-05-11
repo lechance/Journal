@@ -1,4 +1,4 @@
-package com.zhangzhiqiang.android.journal.db;
+package com.lechance.android.journal.db;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;

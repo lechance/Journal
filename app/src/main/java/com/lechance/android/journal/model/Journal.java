@@ -1,4 +1,4 @@
-package com.zhangzhiqiang.android.journal.model;
+package com.lechance.android.journal.model;
 
 import java.io.Serializable;
 

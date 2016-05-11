@@ -1,4 +1,4 @@
-package com.zhangzhiqiang.android.journal.db;
+package com.lechance.android.journal.db;
 
 public class DBConstants {
 

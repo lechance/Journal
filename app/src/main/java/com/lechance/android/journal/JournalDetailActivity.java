@@ -1,12 +1,12 @@
-package com.zhangzhiqiang.android.journal;
+package com.lechance.android.journal;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import com.zhangzhiqiang.android.journal.adapter.ListViewAdapter;
-import com.zhangzhiqiang.android.journal.db.DBConstants;
-import com.zhangzhiqiang.android.journal.db.DBHelper;
-import com.zhangzhiqiang.android.journal.model.Journal;
+import com.lechance.android.journal.adapter.ListViewAdapter;
+import com.lechance.android.journal.db.DBConstants;
+import com.lechance.android.journal.db.DBHelper;
+import com.lechance.android.journal.model.Journal;
 
 import android.os.Bundle;
 import android.app.Activity;

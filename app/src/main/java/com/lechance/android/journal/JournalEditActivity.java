@@ -1,8 +1,8 @@
-package com.zhangzhiqiang.android.journal;
+package com.lechance.android.journal;
 
-import com.zhangzhiqiang.android.journal.db.DBConstants;
-import com.zhangzhiqiang.android.journal.db.DBHelper;
-import com.zhangzhiqiang.android.journal.model.Journal;
+import com.lechance.android.journal.db.DBConstants;
+import com.lechance.android.journal.db.DBHelper;
+import com.lechance.android.journal.model.Journal;
 
 import android.app.Activity;
 import android.content.ContentValues;

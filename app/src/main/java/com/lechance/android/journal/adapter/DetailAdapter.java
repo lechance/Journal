@@ -1,9 +1,9 @@
-package com.zhangzhiqiang.android.journal.adapter;
+package com.lechance.android.journal.adapter;
 
 import java.util.List;
 
-import com.zhangzhiqiang.android.journal.R;
-import com.zhangzhiqiang.android.journal.model.Journal;
+import com.lechance.android.journal.R;
+import com.lechance.android.journal.model.Journal;
 
 import android.content.Context;
 import android.view.LayoutInflater;
