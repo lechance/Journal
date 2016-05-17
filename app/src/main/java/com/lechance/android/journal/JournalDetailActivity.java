@@ -6,6 +6,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
@@ -18,6 +19,7 @@ import com.lechance.android.journal.base.BaseApplication;
 import com.lechance.android.journal.db.DBConstants;
 import com.lechance.android.journal.db.DBHelper;
 import com.lechance.android.journal.model.Journal;
+import com.lechance.android.journal.ui.OtherPreviewJournalActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -53,7 +55,9 @@ public class JournalDetailActivity extends Activity {
                 case R.id.btn_pulblish:
                     startActivity(new Intent(JournalDetailActivity.this, JournalPublishActivity.class));
                     break;
-
+                case R.id.btn_other_preview:
+                    startActivity(new Intent(JournalDetailActivity.this, OtherPreviewJournalActivity.class));
+                    break;
                 default:
                     break;
             }
@@ -96,7 +100,7 @@ public class JournalDetailActivity extends Activity {
     private void queryJournal() {
         Cursor cursor = db.query(DBConstants.DATABASE_TABLE, null, null, null,
                 null, null, null, null);
-        List<Journal> list = new ArrayList<Journal>();
+        List<Journal> list = new ArrayList<>();
 
         while (cursor.moveToNext()) {
             Journal journal = new Journal();
@@ -120,7 +124,14 @@ public class JournalDetailActivity extends Activity {
         listView.setOnItemClickListener(itemListener);
         intent = new Intent();
         btnPublish.setOnClickListener(listener);
+        Button other= (Button) findViewById(R.id.btn_other_preview);
+        other.setOnClickListener(listener);
 
         helper = new DBHelper(this);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        return super.onCreateOptionsMenu(menu);
     }
 }
