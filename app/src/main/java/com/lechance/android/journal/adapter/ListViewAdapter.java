@@ -1,10 +1,5 @@
 package com.lechance.android.journal.adapter;
 
-import java.util.List;
-
-import com.lechance.android.journal.R;
-import com.lechance.android.journal.model.Journal;
-
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,51 +7,63 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
+import com.lechance.android.journal.R;
+import com.lechance.android.journal.model.Journal;
+
+import java.util.List;
+
 public class ListViewAdapter extends BaseAdapter {
-	Context context;
-	List<Journal> list;
-	LayoutInflater inflater;
+    public static final String TAG = "ListViewAdapter";
+    Context context;
+    List<Journal> list;
 
-	public ListViewAdapter(Context context, List<Journal> list) {
-		this.context = context;
-		this.list = list;
-		inflater = LayoutInflater.from(context);
-	}
+    public ListViewAdapter(Context context, List<Journal> list) {
+        this.context = context;
+        this.list = list;
+    }
 
-	@Override
-	public int getCount() {
-		// TODO Auto-generated method stub
-		if (list != null) {
-			return list.size();
-		}else
-		return 0;
-	}
+    @Override
+    public int getCount() {
+        if (list != null) {
+            return list.size();
+        } else
+            return 0;
+    }
 
-	@Override
-	public Object getItem(int position) {
-		// TODO Auto-generated method stub
+    @Override
+    public Object getItem(int position) {
 
-		return list.get(position);
-	}
+        return list.get(position);
+    }
 
-	@Override
-	public long getItemId(int arg0) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
+    @Override
+    public long getItemId(int arg0) {
+        return 0;
+    }
 
-	@Override
-	public View getView(int position, View view, ViewGroup arg2) {
-		// TODO Auto-generated method stub
-		if (view == null) {
-			view = inflater.inflate(R.layout.journal_listview_item, null);
-		}
-		TextView title = (TextView) view.findViewById(R.id.tv_title);
-		TextView date = (TextView) view.findViewById(R.id.tv_date);
-		Journal journal = list.get(position);
-		title.setText(journal.getTitle());
-		date.setText(journal.getDate());
-		return view;
-	}
+    @Override
+    public View getView(int position, View convertView, ViewGroup parent) {
+        ViewHolder holder = null;
+        Journal j = list.get(position);
+        if (convertView == null) {
+            holder=new ViewHolder();
+            convertView = LayoutInflater.from(context).inflate(R.layout.journal_listview_item, null);
+            holder.title = (TextView) convertView.findViewById(R.id.tv_title);
+            holder.date = (TextView) convertView.findViewById(R.id.tv_date);
+            convertView.setTag(holder);
+        } else {
+            holder = (ViewHolder) convertView.getTag();
+        }
+        holder.title.setText(j.getTitle());
+        holder.date.setText(j.getDate());
+
+        return convertView;
+    }
+
+    private static final class ViewHolder {
+        TextView title;
+        TextView date;
+        View view;
+    }
 
 }

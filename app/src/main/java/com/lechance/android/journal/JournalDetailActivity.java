@@ -1,11 +1,14 @@
 package com.lechance.android.journal;
 
 import android.app.Activity;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-import android.os.Handler;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.AlertDialog;
+import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -14,8 +17,8 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Button;
 import android.widget.ListView;
 
+import com.lechance.android.journal.adapter.DrawerLeftItemAdapter;
 import com.lechance.android.journal.adapter.ListViewAdapter;
-import com.lechance.android.journal.base.BaseApplication;
 import com.lechance.android.journal.db.DBConstants;
 import com.lechance.android.journal.db.DBHelper;
 import com.lechance.android.journal.model.Journal;
@@ -23,6 +26,9 @@ import com.lechance.android.journal.ui.OtherPreviewJournalActivity;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
 public class JournalDetailActivity extends Activity {
 
@@ -64,10 +70,13 @@ public class JournalDetailActivity extends Activity {
         }
     };
     private boolean doubleBackTOExitPressedOnce = false;
+    @BindView(R.id.drawer_layout)
+    private DrawerLayout drawerLayout;
+    private ListView left_drawer;
 
     @Override
     public void onBackPressed() {
-        if (doubleBackTOExitPressedOnce) {
+/*        if (doubleBackTOExitPressedOnce) {
             super.onBackPressed();
             return;
         }
@@ -78,7 +87,20 @@ public class JournalDetailActivity extends Activity {
             public void run() {
                 doubleBackTOExitPressedOnce = false;
             }
-        }, 2000);
+        }, 2000);*/
+
+        new AlertDialog.Builder(getApplicationContext())
+                .setTitle("Do you ")
+                .setIcon(R.drawable.ic_launcher)
+                .setMessage("Ensure to exit app")
+                .setNegativeButton("No", null)
+                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Log.i("journal", "which: " + which);
+                    }
+                })
+                .create().show();
     }
 
     @Override
@@ -124,14 +146,25 @@ public class JournalDetailActivity extends Activity {
         listView.setOnItemClickListener(itemListener);
         intent = new Intent();
         btnPublish.setOnClickListener(listener);
-        Button other= (Button) findViewById(R.id.btn_other_preview);
+        Button other = (Button) findViewById(R.id.btn_other_preview);
         other.setOnClickListener(listener);
-
+        ButterKnife.bind(this);
         helper = new DBHelper(this);
+        left_drawer = (ListView) findViewById(R.id.left_drawer);
+        left_drawer.setAdapter(new DrawerLeftItemAdapter(getApplicationContext()));
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         return super.onCreateOptionsMenu(menu);
+    }
+
+    public static class meDialog extends android.support.v4.app.DialogFragment {
+
+        public meDialog() {
+            super();
+        }
+
+
     }
 }
