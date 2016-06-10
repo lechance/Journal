@@ -4,4 +4,5 @@
     <!--drawer attr-->
     <attr name="drawer_header_background" format="reference|color" />
     <attr name="drawer_header_username" format="reference|color" />
+    <attr name="drawer_container_background" format="reference|color" />
 </resources>

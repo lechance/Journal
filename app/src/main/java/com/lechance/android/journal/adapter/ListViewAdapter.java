@@ -4,7 +4,10 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
+import android.widget.SimpleAdapter;
 import android.widget.TextView;
 
 import com.lechance.android.journal.R;
@@ -50,20 +53,21 @@ public class ListViewAdapter extends BaseAdapter {
             convertView = LayoutInflater.from(context).inflate(R.layout.journal_listview_item, null);
             holder.title = (TextView) convertView.findViewById(R.id.tv_title);
             holder.date = (TextView) convertView.findViewById(R.id.tv_date);
+            holder.icon = (ImageView) convertView.findViewById(R.id.tv_icon);
             convertView.setTag(holder);
         } else {
             holder = (ViewHolder) convertView.getTag();
         }
         holder.title.setText(j.getTitle());
         holder.date.setText(j.getDate());
-
+        holder.icon.setImageResource(R.drawable.ic_content_paste_black_24dp);
         return convertView;
     }
 
     private static final class ViewHolder {
         TextView title;
         TextView date;
-        View view;
+        ImageView icon;
     }
 
 }

@@ -13,21 +13,19 @@
 
     <application
         android:allowBackup="true"
+        android:vmSafeMode="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
+        android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light">
-        <activity
-            android:name="com.lechance.android.journal.JournalDetailActivity"
-            android:label="@android:style/Theme.Black.NoTitleBar">
+        <activity android:name=".ui.Main_Journal_Activity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.lechance.android.journal.JournalPublishActivity" />
-        <activity android:name="com.lechance.android.journal.JournalEditActivity" />
-        <activity android:name=".ui.OtherPreviewJournalActivity" />
+        <activity android:name=".ui.activity.TestActivity"/>
     </application>
 
 </manifest>

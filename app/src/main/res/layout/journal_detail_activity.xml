@@ -6,44 +6,16 @@
     tools:actionBarNavMode="standard"
     tools:openDrawer="start">
 
-    <RelativeLayout
-        android:id="@+id/content_relative"
+    <FrameLayout
+        android:id="@+id/contentJournal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#D8D8D8">
-
-        <Button
-            android:id="@+id/btn_other_preview"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_marginRight="5dp"
-            android:text="OtherPreview" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:text="@string/journal"
-            android:textColor="@android:color/black"
-            android:textSize="18sp" />
-
-        <Button
-            android:id="@+id/btn_pulblish"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="5dp"
-            android:text="@string/publish" />
+        android:layout_height="match_parent">
 
         <ListView
             android:id="@+id/lv_display"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_alignParentRight="true"
-            android:layout_below="@id/btn_pulblish"
-            android:entries="@array/test" />
-    </RelativeLayout>
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </FrameLayout>
 
     <ListView
         android:id="@+id/left_drawer"

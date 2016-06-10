@@ -22,7 +22,6 @@ import com.lechance.android.journal.adapter.ListViewAdapter;
 import com.lechance.android.journal.db.DBConstants;
 import com.lechance.android.journal.db.DBHelper;
 import com.lechance.android.journal.model.Journal;
-import com.lechance.android.journal.ui.OtherPreviewJournalActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -58,12 +57,12 @@ public class JournalDetailActivity extends Activity {
         public void onClick(View v) {
             // TODO Auto-generated method stub
             switch (v.getId()) {
-                case R.id.btn_pulblish:
-                    startActivity(new Intent(JournalDetailActivity.this, JournalPublishActivity.class));
-                    break;
-                case R.id.btn_other_preview:
-                    startActivity(new Intent(JournalDetailActivity.this, OtherPreviewJournalActivity.class));
-                    break;
+//                case R.id.btn_pulblish:
+//                    startActivity(new Intent(JournalDetailActivity.this, JournalPublishActivity.class));
+//                    break;
+//                case R.id.btn_other_preview:
+//                    startActivity(new Intent(JournalDetailActivity.this, OtherPreviewJournalActivity.class));
+//                    break;
                 default:
                     break;
             }
@@ -141,17 +140,17 @@ public class JournalDetailActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.journal_detail_activity);
-        btnPublish = (Button) findViewById(R.id.btn_pulblish);
+//        btnPublish = (Button) findViewById(R.id.btn_pulblish);
         listView = (ListView) findViewById(R.id.lv_display);
         listView.setOnItemClickListener(itemListener);
         intent = new Intent();
-        btnPublish.setOnClickListener(listener);
-        Button other = (Button) findViewById(R.id.btn_other_preview);
-        other.setOnClickListener(listener);
+//        btnPublish.setOnClickListener(listener);
+//        Button other = (Button) findViewById(R.id.btn_other_preview);
+//        other.setOnClickListener(listener);
         ButterKnife.bind(this);
         helper = new DBHelper(this);
         left_drawer = (ListView) findViewById(R.id.left_drawer);
-        left_drawer.setAdapter(new DrawerLeftItemAdapter(getApplicationContext()));
+        left_drawer.setAdapter(new DrawerLeftItemAdapter(this,getLists()));
     }
 
     @Override
@@ -166,5 +165,12 @@ public class JournalDetailActivity extends Activity {
         }
 
 
+    }
+
+    private ArrayList<String> getLists(){
+        ArrayList<String> lists=new ArrayList<>();
+        for(int i=0,len=20;i<len;i++)
+            lists.add("Item "+i);
+        return lists;
     }
 }
