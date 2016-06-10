@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--drawer attr-->
+    <attr name="drawer_header_background" format="reference|color" />
+    <attr name="drawer_header_username" format="reference|color" />
+</resources>
