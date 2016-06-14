@@ -1,8 +1,10 @@
-package com.lechance.android.journal;
+package com.lechance.android.journal.ui.activity;
 
-import com.lechance.android.journal.db.DBConstants;
-import com.lechance.android.journal.db.DBHelper;
-import com.lechance.android.journal.model.Journal;
+import com.lechance.android.journal.R;
+import com.lechance.android.journal.data.source.local.DiaryDbConstants;
+import com.lechance.android.journal.data.source.local.DiaryDbContract;
+import com.lechance.android.journal.data.Journal;
+import com.lechance.android.journal.data.source.local.DiaryDbHelper;
 
 import android.app.Activity;
 import android.content.ContentValues;
@@ -23,14 +25,14 @@ public class JournalEditActivity extends Activity {
 	 * flag is true --edit flag is false -- submit
 	 */
 	boolean flag = true;
-	DBHelper helper;
+	DiaryDbHelper helper;
 	SQLiteDatabase db;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.journal_edit_activity);
+		setContentView(R.layout.activity_edit_diary);
 		Intent intent = getIntent();
 		if (intent != null) {
 			journal = (Journal) intent.getSerializableExtra("journal");
@@ -44,7 +46,7 @@ public class JournalEditActivity extends Activity {
 		eContent.setText(journal.getContent());
 		eContent.setEnabled(false);
 		eTitle.setVisibility(View.GONE);
-		helper = new DBHelper(this);
+		helper = new DiaryDbHelper(this);
 	}
 
 	public void btnOnClick(View view) {
@@ -75,9 +77,9 @@ public class JournalEditActivity extends Activity {
 	private void submit() {
 		db = helper.getReadableDatabase();
 		ContentValues cValues = new ContentValues();
-		cValues.put(DBConstants.KEY_TITLE, eTitle.getText().toString());
-		cValues.put(DBConstants.KEY_CONTENT, eContent.getText().toString());
-		db.update(DBConstants.DATABASE_TABLE, cValues, DBConstants.KEY_ROWID
+		cValues.put(DiaryDbConstants.KEY_TITLE, eTitle.getText().toString());
+		cValues.put(DiaryDbConstants.KEY_CONTENT, eContent.getText().toString());
+		db.update(DiaryDbContract.DiaryEntry.TABLE_NAME, cValues, DiaryDbConstants.KEY_ROWID
 				+ "=?", new String[] { "" + journal.getId() });
 		db.close();
 	}

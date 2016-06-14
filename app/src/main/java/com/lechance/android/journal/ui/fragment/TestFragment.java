@@ -1,6 +1,5 @@
 package com.lechance.android.journal.ui.fragment;
 
-import android.app.Activity;
 import android.app.Fragment;
 import android.content.Context;
 import android.os.Bundle;
@@ -54,7 +53,7 @@ public class TestFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         log("onCreateView");
-        View view = inflater.inflate(R.layout.journal_listview_item, null);
+        View view = inflater.inflate(R.layout.view_item_listview, null);
         TextView title = (TextView) view.findViewById(R.id.tv_title);
         title.setText("Fragment# " + num);
         title.setBackgroundResource(android.R.drawable.screen_background_dark);

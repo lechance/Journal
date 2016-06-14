@@ -1,4 +1,4 @@
-package com.lechance.android.journal;
+package com.lechance.android.journal.base;
 
 import android.app.Application;
 import android.content.Context;

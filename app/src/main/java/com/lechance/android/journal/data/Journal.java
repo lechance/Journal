@@ -1,4 +1,5 @@
-package com.lechance.android.journal.model;
+package com.lechance.android.journal.data;
+
 
 import java.io.Serializable;
 
@@ -25,7 +26,7 @@ public class Journal implements Serializable {
         return title;
     }
 
-    public void setTitle(String title) {
+    public void setTitle( String title) {
         this.title = title;
     }
 

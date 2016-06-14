@@ -9,32 +9,32 @@ import android.widget.ListView;
 
 import com.lechance.android.journal.R;
 import com.lechance.android.journal.adapter.NoteAdapter;
-import com.lechance.android.journal.db.DBConstants;
-import com.lechance.android.journal.db.DBHelper;
+import com.lechance.android.journal.data.source.local.DiaryDbConstants;
+import com.lechance.android.journal.data.source.local.DiaryDbHelper;
 
 /**
  * This class was Created by lechance on 17 May 2016 at 1:39 PM.
  */
-public class OtherPreviewJournalActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity {
 
     private ListView journal_preview;
     private NoteAdapter noteAdapter;
-    private DBHelper helper;
+    private DiaryDbHelper helper;
     private SQLiteDatabase db;
     private Cursor cursor;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.journal_main_preview_activity);
+        setContentView(R.layout.activity_preview_list);
         init();
     }
 
     private void init() {
         journal_preview = (ListView) findViewById(R.id.pre_journal);
-        helper = new DBHelper(this);
+        helper = new DiaryDbHelper(this);
         db = helper.getReadableDatabase();
-        cursor = db.query(DBConstants.DATABASE_TABLE, null, null, null, null, null, null);
+        cursor = db.query(DiaryDbConstants.DATABASE_TABLE, null, null, null, null, null, null);
         noteAdapter = new NoteAdapter(this, cursor, 0);
         journal_preview.setAdapter(noteAdapter);
     }

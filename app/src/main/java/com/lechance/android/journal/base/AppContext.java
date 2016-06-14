@@ -1,6 +1,4 @@
-package com.lechance.android.journal;
-
-import com.lechance.android.journal.base.BaseApplication;
+package com.lechance.android.journal.base;
 
 import java.util.UUID;
 

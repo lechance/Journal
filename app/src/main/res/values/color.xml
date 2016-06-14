@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <resources>
-    <color name="drawer_header_background">#339933</color>
-    <color name="drawer_container_background">#339933</color>
+
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <drawable name="touchFeedback">#CFD8DC</drawable>
+
 </resources>

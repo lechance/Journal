@@ -1,4 +1,4 @@
-package com.lechance.android.journal;
+package com.lechance.android.journal.ui.activity;
 
 import android.app.Activity;
 import android.content.DialogInterface;
@@ -17,11 +17,12 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Button;
 import android.widget.ListView;
 
+import com.lechance.android.journal.R;
 import com.lechance.android.journal.adapter.DrawerLeftItemAdapter;
 import com.lechance.android.journal.adapter.ListViewAdapter;
-import com.lechance.android.journal.db.DBConstants;
-import com.lechance.android.journal.db.DBHelper;
-import com.lechance.android.journal.model.Journal;
+import com.lechance.android.journal.data.Journal;
+import com.lechance.android.journal.data.source.local.DiaryDbContract;
+import com.lechance.android.journal.data.source.local.DiaryDbHelper;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,7 +36,7 @@ public class JournalDetailActivity extends Activity {
     Intent intent;
     ListView listView;
     SQLiteDatabase db;
-    DBHelper helper;
+    DiaryDbHelper helper;
     // itemListener
     OnItemClickListener itemListener = new OnItemClickListener() {
 
@@ -119,7 +120,7 @@ public class JournalDetailActivity extends Activity {
 
     // query
     private void queryJournal() {
-        Cursor cursor = db.query(DBConstants.DATABASE_TABLE, null, null, null,
+        Cursor cursor = db.query(DiaryDbContract.DiaryEntry.TABLE_NAME, null, null, null,
                 null, null, null, null);
         List<Journal> list = new ArrayList<>();
 
@@ -139,7 +140,7 @@ public class JournalDetailActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.journal_detail_activity);
+        setContentView(R.layout.activity_detail);
 //        btnPublish = (Button) findViewById(R.id.btn_pulblish);
         listView = (ListView) findViewById(R.id.lv_display);
         listView.setOnItemClickListener(itemListener);
@@ -148,14 +149,21 @@ public class JournalDetailActivity extends Activity {
 //        Button other = (Button) findViewById(R.id.btn_other_preview);
 //        other.setOnClickListener(listener);
         ButterKnife.bind(this);
-        helper = new DBHelper(this);
+        helper = new DiaryDbHelper(this);
         left_drawer = (ListView) findViewById(R.id.left_drawer);
-        left_drawer.setAdapter(new DrawerLeftItemAdapter(this,getLists()));
+        left_drawer.setAdapter(new DrawerLeftItemAdapter(this, getLists()));
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         return super.onCreateOptionsMenu(menu);
+    }
+
+    private ArrayList<String> getLists() {
+        ArrayList<String> lists = new ArrayList<>();
+        for (int i = 0, len = 20; i < len; i++)
+            lists.add("Item " + i);
+        return lists;
     }
 
     public static class meDialog extends android.support.v4.app.DialogFragment {
@@ -165,12 +173,5 @@ public class JournalDetailActivity extends Activity {
         }
 
 
-    }
-
-    private ArrayList<String> getLists(){
-        ArrayList<String> lists=new ArrayList<>();
-        for(int i=0,len=20;i<len;i++)
-            lists.add("Item "+i);
-        return lists;
     }
 }

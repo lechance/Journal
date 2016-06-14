@@ -4,9 +4,8 @@
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
 
-
     <!--drawer main layout-->
-    <dimen name="drawer_header_height">167dp</dimen>
+    <dimen name="drawer_header_height">160dp</dimen>
     <dimen name="drawer_nav_width">240dp</dimen>
     <dimen name="drawer_nav_item_text">16sp</dimen>
     <dimen name="drawer_item_title">16sp</dimen>
@@ -15,7 +14,7 @@
     <dimen name="drawer_item_time">12sp</dimen>
     <dimen name="drawer_item_type">12sp</dimen>
     <dimen name="drawer_min_divider_height">1px</dimen>
-    <item name="standard_alpha" format="float" type="dimen">0.84</item>
-    <item name="secondary_alpha" format="float" type="dimen">0.54</item>
 
+    <!--fab-->
+    <dimen name="fab_margin">16dp</dimen>
 </resources>

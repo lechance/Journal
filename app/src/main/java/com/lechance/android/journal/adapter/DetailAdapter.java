@@ -3,7 +3,7 @@ package com.lechance.android.journal.adapter;
 import java.util.List;
 
 import com.lechance.android.journal.R;
-import com.lechance.android.journal.model.Journal;
+import com.lechance.android.journal.data.Journal;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -49,7 +49,7 @@ public class DetailAdapter extends BaseAdapter {
 	public View getView(int position, View view, ViewGroup arg2) {
 		// TODO Auto-generated method stub
 		if (view == null) {
-			view = inflater.inflate(R.layout.journal_listview_item, null);
+			view = inflater.inflate(R.layout.view_item_listview, null);
 		}
 		TextView title = (TextView) view.findViewById(R.id.tv_title);
 		TextView date = (TextView) view.findViewById(R.id.tv_date);

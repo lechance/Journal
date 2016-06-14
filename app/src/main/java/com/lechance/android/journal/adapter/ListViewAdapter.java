@@ -4,14 +4,12 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
-import android.widget.SimpleAdapter;
 import android.widget.TextView;
 
 import com.lechance.android.journal.R;
-import com.lechance.android.journal.model.Journal;
+import com.lechance.android.journal.data.Journal;
 
 import java.util.List;
 
@@ -50,7 +48,7 @@ public class ListViewAdapter extends BaseAdapter {
         Journal j = list.get(position);
         if (convertView == null) {
             holder=new ViewHolder();
-            convertView = LayoutInflater.from(context).inflate(R.layout.journal_listview_item, null);
+            convertView = LayoutInflater.from(context).inflate(R.layout.view_item_listview, null);
             holder.title = (TextView) convertView.findViewById(R.id.tv_title);
             holder.date = (TextView) convertView.findViewById(R.id.tv_date);
             holder.icon = (ImageView) convertView.findViewById(R.id.tv_icon);

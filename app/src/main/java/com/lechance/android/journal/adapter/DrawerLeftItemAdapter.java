@@ -51,7 +51,7 @@ public class DrawerLeftItemAdapter extends BaseAdapter {
         ViewHolder holder;
         if (convertView == null) {
             holder = new ViewHolder();
-            convertView = LayoutInflater.from(context).inflate(R.layout.journal_listview_item, null);
+            convertView = LayoutInflater.from(context).inflate(R.layout.view_item_listview, null);
             holder.icon = (ImageView) convertView.findViewById(R.id.drawer_listview_item_image);
             holder.item = (TextView) convertView.findViewById(R.id.drawer_listview_item_content);
             convertView.setTag(holder);

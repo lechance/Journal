@@ -1,10 +1,10 @@
-package com.lechance.android.journal.model;
+package com.lechance.android.journal.data.bean;
 
 import android.os.Parcel;
 import android.os.Parcelable;
 
 /**
- * This class was Created by lechance on 16 May 2016 at 5:22 PM.
+ * This class was Created by lechance
  */
 public class MyParcelable implements Parcelable {
 

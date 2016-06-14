@@ -1,6 +1,6 @@
-package com.lechance.android.journal.db;
+package com.lechance.android.journal.data.source.local;
 
-public class DBConstants {
+public final class DiaryDbConstants {
 
 	/**
 	 * Database Name
