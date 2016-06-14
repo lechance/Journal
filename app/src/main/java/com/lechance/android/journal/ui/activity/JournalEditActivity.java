@@ -32,7 +32,7 @@ public class JournalEditActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_edit_diary);
+		setContentView(R.layout.act_edit_diary);
 		Intent intent = getIntent();
 		if (intent != null) {
 			journal = (Journal) intent.getSerializableExtra("journal");

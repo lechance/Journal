@@ -14,7 +14,10 @@
     <dimen name="drawer_item_time">12sp</dimen>
     <dimen name="drawer_item_type">12sp</dimen>
     <dimen name="drawer_min_divider_height">1px</dimen>
+    <dimen name="list_item_padding">8dp</dimen>
 
     <!--fab-->
     <dimen name="fab_margin">16dp</dimen>
+
+    <dimen name="nav_header_main_text_size">18sp</dimen>
 </resources>

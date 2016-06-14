@@ -7,4 +7,6 @@
 	<string name="publish">Publish</string>
 	<string name="edit">Edit</string>
     <string name="action_setting">Setting</string>
+    <string name="nav_header_tips">Tip:write down idea every day!</string>
+    <string name="nav_header_exit_button">Exit</string>
 </resources>

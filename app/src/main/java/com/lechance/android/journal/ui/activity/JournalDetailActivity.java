@@ -140,7 +140,7 @@ public class JournalDetailActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_detail);
+        setContentView(R.layout.act_detail);
 //        btnPublish = (Button) findViewById(R.id.btn_pulblish);
         listView = (ListView) findViewById(R.id.lv_display);
         listView.setOnItemClickListener(itemListener);

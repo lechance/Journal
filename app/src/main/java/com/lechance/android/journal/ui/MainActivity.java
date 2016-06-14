@@ -9,7 +9,7 @@ import android.widget.ListView;
 
 import com.lechance.android.journal.R;
 import com.lechance.android.journal.adapter.NoteAdapter;
-import com.lechance.android.journal.data.source.local.DiaryDbConstants;
+import com.lechance.android.journal.data.source.local.DiaryDbContract;
 import com.lechance.android.journal.data.source.local.DiaryDbHelper;
 
 /**
@@ -26,15 +26,15 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_preview_list);
-        init();
+        setContentView(R.layout.diary_list_act);
+//        init();
     }
 
     private void init() {
         journal_preview = (ListView) findViewById(R.id.pre_journal);
         helper = new DiaryDbHelper(this);
         db = helper.getReadableDatabase();
-        cursor = db.query(DiaryDbConstants.DATABASE_TABLE, null, null, null, null, null, null);
+        cursor = db.query(DiaryDbContract.DiaryEntry.TABLE_NAME, null, null, null, null, null, null);
         noteAdapter = new NoteAdapter(this, cursor, 0);
         journal_preview.setAdapter(noteAdapter);
     }

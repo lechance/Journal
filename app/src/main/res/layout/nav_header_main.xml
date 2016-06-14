@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="@dimen/drawer_header_height"
+    android:layout_height="wrap_content"
+    android:gravity="bottom"
+    android:background="@drawable/side_nav_bar"
     android:orientation="vertical"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
@@ -18,13 +20,6 @@
             android:layout_height="70dp"
             android:src="@drawable/ic_profile_black_24dp" />
 
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentTop="true"
-            android:layout_centerInParent="true"
-            android:src="@drawable/ic_power_off_black_24dp" />
     </RelativeLayout>
 
     <TextView
@@ -32,6 +27,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="@dimen/drawer_item_title"
-        android:text="@string/__leak_canary_analysis_failed" />
+        android:text="@string/nav_header_tips"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+       />
 
 </LinearLayout>

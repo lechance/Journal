@@ -26,7 +26,7 @@ public class JournalPublishActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         // TODO Auto-generated method stub
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_publish_diary);
+        setContentView(R.layout.act_publish_diary);
         helper = new DiaryDbHelper(this);
         eTitle = (EditText) findViewById(R.id.et_title);
         eContent = (EditText) findViewById(R.id.et_content);
